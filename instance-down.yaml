@@ -1,0 +1,26 @@
+groups:
+- name: InstanceDown
+  labels:
+    team: myteam
+  rules:
+  - alert: InstanceDownAlert
+    expr: up < 1
+    for: 1m
+    labels:
+      severity: Critical
+    annotations:
+      summary: Instance is Down
+
+# login to the prometheus(ec2) server
+# $ mkdir alert-rules
+# $ cd alert-rules/
+# $ vim InstanceDown.yaml
+# Go to insert mode and paste the above code
+# :wq!
+# $ cd ..
+
+# $ cd /opt/prometheus/
+# vim prometheus.yml
+# :%d
+# Go to Insert Mode and paste the edited prometheu.yml
+# $ systemctl restart prometheus
