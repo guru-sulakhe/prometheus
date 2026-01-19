@@ -6,7 +6,7 @@ global:
 
 # Alertmanager configuration
 alerting:
-  alertmanagers:
+  alertmanagers: #if you want to send an alert to alertmanager enter the target IP Address: 9093
     - static_configs:
         - targets:
           - localhost:9093
